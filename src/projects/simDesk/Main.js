@@ -6,7 +6,6 @@ import Menubar from './components/Menubar';
 import Tools from './components/Tools';
 import Toolbar from './components/Toolbar';
 import Desk from './components/Desk';
-import Footer from './components/Footer';
 import Modal from './components/Modal';
 import styles from './styles/Main.scss';
 
@@ -33,7 +32,10 @@ export default class App extends Component {
         <header className={styles.header}>
           <span>SimDesk</span>
         </header>
-        <Menubar/>
+        <Menubar
+          buffer={buffer}
+          deleteMode={deleteMode}
+          budget={budget}/>
         <div className={styles.dragContainer}>
           <Toolbar
             toolAction={this.handleSelectItem}
@@ -45,11 +47,6 @@ export default class App extends Component {
             tools={tools}
             toolClick={this.handleToolClick}
             deskClick={this.handleDeskClick}/>
-          <Footer
-            buffer={buffer}
-            deleteMode={deleteMode}
-            budget={budget}
-            tools={tools}/>
         </div>
         {welcomeModal ?
           <Modal>
