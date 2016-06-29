@@ -1,0 +1,56 @@
+@import "helpers";
+
+.control {
+  user-select: none;
+  color: $foreground;
+  font-size: 1.5em;
+}
+
+.label {
+  font-weight: 200;
+  display: inline-block;
+}
+
+.rangeCell {
+  position: relative;
+}
+
+.range {
+  appearance: none;
+  position: absolute;
+  outline: none;
+  top: 50%;
+  min-width: 15vw;
+
+  &::-webkit-slider-thumb {
+    $size: 1rem;
+    appearance: none;
+    border: 1px solid $foreground;
+    border-radius: $size / 2;
+    width: $size;
+    height: $size;
+    margin-top: -($size / 2);
+    background-color: $background;
+    cursor: ew-resize;
+  }
+
+  &::-webkit-slider-runnable-track {
+    height: 1px;
+    width: 100%;
+    background-color: $foreground;
+  }
+}
+
+.input {
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  color: $foreground;
+  outline: 0;
+  border-radius: 3px;
+  padding-left: 0.25rem;
+
+  &:focus {
+    box-shadow: 0 0 0 1px $foreground;
+  }
+}

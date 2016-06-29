@@ -4,7 +4,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        This is the simDesk
+        This is the SimDesk
       </div>
     );
   }

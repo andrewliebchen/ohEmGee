@@ -1,0 +1,13 @@
+$foreground: #c9d6c6;
+$background: #001217;
+
+$accent: #115768;
+
+@mixin dots($size: 4px, $color: $accent) {
+  $position: $size / 2;
+  background-image:
+    radial-gradient($color 20%, transparent 21%),
+    radial-gradient($color 20%, transparent 21%);
+  background-size: $size $size;
+  background-position: 0 0, $position $position;
+}

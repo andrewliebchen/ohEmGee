@@ -6,10 +6,10 @@ export default class App extends Component {
   render() {
     return (
       <div className={styles.wrapper}>
-        Hello World!
+        <h1>OhEmGee</h1>
         <ul>
-          <li><Link to="/simDesk">SimDesk</Link></li>
-          <li><Link to="/cube">Cube</Link></li>
+          <li><Link to="simDesk">SimDesk</Link></li>
+          <li><Link to="cube">Cube</Link></li>
         </ul>
       </div>
     );

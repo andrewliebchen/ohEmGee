@@ -1,0 +1,67 @@
+$size: 25vh;
+$anaglyphOffset: $size / 2;
+$translate: translateZ($anaglyphOffset);
+
+.anaglyphContainer {
+  position: relative;
+}
+
+.anaglyphLeft {
+  composes: anaglyphContainer;
+  border-color: cyan;
+}
+
+.anaglyphRight {
+  composes: anaglyphContainer;
+  border-color: red;
+}
+
+.cube {
+  backface-visibility: visible;
+  position: absolute;
+  height: $size;
+  width: $size;
+  transform-style: preserve-3d;
+  top: 50%;
+  left: 50%;
+  border-color: inherit;
+  -webkit-mix-blend-mode: multiply;
+}
+
+.face {
+  position: absolute;
+  height: $size;
+  width: $size;
+  border: 1px solid;
+  border-color: inherit;
+}
+
+.frontFace {
+  composes: face;
+  transform: rotateY(0deg) $translate;
+}
+
+.backFace {
+  composes: face;
+  transform: rotateX(180deg) $translate;
+}
+
+.leftFace {
+  composes: face;
+  transform: rotateY(90deg) $translate;
+}
+
+.rightFace {
+  composes: face;
+  transform: rotateY(-90deg) $translate;
+}
+
+.topFace {
+  composes: face;
+  transform: rotateX(90deg) $translate;
+}
+
+.bottomFace {
+  composes: face;
+  transform: rotateX(-90deg) $translate;
+}

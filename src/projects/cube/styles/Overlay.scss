@@ -1,0 +1,54 @@
+@import "helpers";
+
+.overlay {
+  @include dots(10px);
+  background-color: rgba($background, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.content {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  padding: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  max-width: 50vw;
+}
+
+.graphic {
+  fill: $foreground;
+}
+
+
+:global {
+  .overlay-enter {
+    opacity: 0.01;
+    transform: scale(1.5);
+
+    &.overlay-enter-active {
+      opacity: 1;
+      transition: 0.2s ease-in;
+      transform: scale(1);
+    }
+  }
+
+
+  .overlay-leave {
+    opacity: 1;
+    transform: scale(1);
+
+    &.overlay-leave-active {
+      opacity: 0.01;
+      transition: 0.2s ease-in;
+      transform: scale(1.5);
+    }
+  }
+}
