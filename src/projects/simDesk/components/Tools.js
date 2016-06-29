@@ -125,7 +125,7 @@ const Tools = [
       	<rect x="53.5" y="47" width="4" height="2.5"/>
       	<rect x="68.5" y="47" width="4" height="2.5"/>
       	<rect x="48.5" y="47" width="4" height="2.5"/>
-      </g>
+      </g>,
   }, {
     name: 'headphones',
     width: 76.9,
@@ -192,7 +192,7 @@ const Tools = [
       <line className={styles.strokeThickLight} x1="12.6" y1="3.5" x2="16.6" y2="3.5"/>
       <line className={styles.strokeThickLight} x1="10.6" y1="3.5" x2="10.6" y2="3.5"/>
       <circle className={styles.strokeThinLight} cx="14.5" cy="52.1" r="1.5"/>
-    </g>
+    </g>,
   }, {
     name: 'keyboard',
     width: 90,
@@ -318,7 +318,7 @@ const Tools = [
         <path d="M55.5,17.5v3h-3v-3H55.5 M56,17h-4v4h4V17L56,17z"/>
         <path className={styles.strokeThickDark} d="M0.5,32.5v-31c0-0.6,0.4-1,1-1h87c0.6,0,1,0.4,1,1v31c0,0.6-0.4,1-1,1h-87C0.9,33.5,0.5,33.1,0.5,32.5z"/>
         <line className={styles.strokeThinDark} x1="78.2" y1="29.2" x2="82" y2="29.2"/>
-      </g>
+      </g>,
   }, {
     name: 'marker',
     width: 10,
@@ -352,7 +352,7 @@ const Tools = [
         <line className={styles.strokeThinDark} x1="6.2" y1="55.3" x2="8" y2="57"/>
         <line className={styles.strokeThinDark} x1="2" y1="57" x2="3.8" y2="55.3"/>
         <line className={styles.strokeThinDark} x1="6.2" y1="52.8" x2="8" y2="51"/>
-      </g>
+      </g>,
   }, {
     name: 'mouse',
     width: 21,
@@ -376,7 +376,7 @@ const Tools = [
           c-0.4,0.2-0.5,0.5-0.5,0.9c0,0.3,0.1,0.6,0.3,0.8c0.1,0.1,0.2,0.2,0.3,0.2C12.5,32.1,12.4,32.2,12.4,32.3L12.4,32.3z M11.5,28.7
           c0,0.2-0.1,0.5-0.3,0.7c-0.2,0.2-0.5,0.4-0.7,0.4c0,0,0-0.1,0-0.1c0-0.2,0.1-0.5,0.3-0.7c0.1-0.1,0.2-0.2,0.3-0.3
           C11.2,28.6,11.4,28.6,11.5,28.7C11.5,28.6,11.5,28.6,11.5,28.7L11.5,28.7z"/>
-      </g>
+      </g>,
   }, {
     name: 'mug',
     width: 32,
@@ -394,7 +394,7 @@ const Tools = [
       	<path d="M20,34.4V52c0,1.1-0.9,2-2,2h-4c-1.1,0-2-0.9-2-2V34.4c1.3,0.4,2.6,0.6,4,0.6S18.7,34.8,20,34.4 M20.5,33.8L19.9,34
       		c-1.3,0.4-2.6,0.5-3.9,0.5c-1.3,0-2.6-0.2-3.9-0.5l-0.6-0.2v0.7V52c0,1.4,1.1,2.5,2.5,2.5h4c1.4,0,2.5-1.1,2.5-2.5V34.4V33.8
       		L20.5,33.8z"/>
-      </g>
+      </g>,
   }, {
     name: 'notebook',
     width: 51,
@@ -437,7 +437,7 @@ const Tools = [
         <line className={styles.strokeThinLight} x1="2.5" y1="0" x2="2.5" y2="73"/>
       	<rect x="38.8" y="0.8" className={styles.fillLight} width="2.5" height="75"/>
       	<path d="M41,1v74.5h-2V1H41 M41.5,0.5h-3V76h3V0.5L41.5,0.5z"/>
-      </g>
+      </g>,
   },
 ];
 

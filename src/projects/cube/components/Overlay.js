@@ -6,7 +6,7 @@ export default class Overlay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: true
+      show: true,
     };
   }
 

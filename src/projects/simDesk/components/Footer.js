@@ -6,7 +6,7 @@ import styles from '../styles/Footer.scss';
 
 export default class Footer extends Component {
   render() {
-    const { buffer, deleteMode, budget, tools } = this.props;
+    const { buffer, deleteMode, budget } = this.props;
     return (
       <footer className={styles.footer}>
         <div className={styles.notification}>

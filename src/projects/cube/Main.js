@@ -14,7 +14,7 @@ export default class Main extends Component {
       panY: 50,
       zAngle: 0,
       orbitX: 0,
-      orbitY: 0
+      orbitY: 0,
     };
   }
 

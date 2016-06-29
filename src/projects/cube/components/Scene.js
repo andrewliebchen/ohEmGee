@@ -10,7 +10,7 @@ const Scene = (props) =>
         perspective: `${props.zoom}px`,
         perspectiveOrigin: `${props.panX}% ${props.panY}%`,
         top: `${props.panHorizon}%`,
-        left: `${props.panX}%`
+        left: `${props.panX}%`,
       }}>
       {props.children}
     </div>
@@ -19,7 +19,7 @@ const Scene = (props) =>
       style={{
         top: `${props.panHorizon + props.orbitHorizon - 50}%`,
         transform: `rotate(${props.orbitY}deg)`,
-        bottom: props.orbitY > 90 ? 'auto' : '-9999px'
+        bottom: props.orbitY > 90 ? 'auto' : '-9999px',
       }}/>
   </span>
 
@@ -29,7 +29,7 @@ Scene.propTypes = {
   panY: PropTypes.number,
   panHorizon: PropTypes.number,
   orbitHorizon: PropTypes.number,
-  orbitY: PropTypes.number
+  orbitY: PropTypes.number,
 };
 
 export default Scene;

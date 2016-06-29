@@ -44,7 +44,7 @@ export default class Menubar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: moment()
+      time: moment(),
     };
   }
 

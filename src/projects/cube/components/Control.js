@@ -31,7 +31,7 @@ Control.propTypes = {
   value:  PropTypes.number,
   action: PropTypes.func,
   min: PropTypes.number,
-  max: PropTypes.number
+  max: PropTypes.number,
 }
 
 export default Control;

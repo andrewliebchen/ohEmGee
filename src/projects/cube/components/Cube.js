@@ -45,7 +45,7 @@ Cube.propTypes = {
   orbitX: PropTypes.number,
   zAngle: PropTypes.number,
   orbitY: PropTypes.number,
-  anaglyph: PropTypes.bool
+  anaglyph: PropTypes.bool,
 };
 
 export default Cube;
