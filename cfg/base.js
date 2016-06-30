@@ -4,6 +4,7 @@ let defaultSettings = require('./defaults');
 let autoprefixer = require('autoprefixer');
 
 
+
 // Additional npm or bower modules to include in builds
 // Add all foreign plugins you may need into this array
 // @example:
@@ -17,9 +18,9 @@ module.exports = {
   debug: true,
   devtool: 'eval',
   output: {
-    path: path.join(__dirname, '/../dist/assets'),
+    path: path.join(__dirname, '/../dist'),
     filename: 'app.js',
-    publicPath: defaultSettings.publicPath
+    publicPath: defaultSettings.publicPath,
   },
   devServer: {
     contentBase: './src/',
@@ -27,7 +28,7 @@ module.exports = {
     hot: true,
     port: defaultSettings.port,
     publicPath: defaultSettings.publicPath,
-    noInfo: false
+    noInfo: false,
   },
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -37,11 +38,11 @@ module.exports = {
       sources: `${defaultSettings.srcPath}/sources/`,
       stores: `${defaultSettings.srcPath}/stores/`,
       styles: `${defaultSettings.srcPath}/styles/`,
-      config: `${defaultSettings.srcPath}/config/` + process.env.REACT_WEBPACK_ENV
-    }
+      config: `${defaultSettings.srcPath}/config/` + process.env.REACT_WEBPACK_ENV,
+    },
   },
   module: {},
   postcss: function () {
     return [autoprefixer];
-  }
+  },
 };

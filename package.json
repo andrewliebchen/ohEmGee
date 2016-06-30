@@ -6,7 +6,7 @@
   "main": "",
   "scripts": {
     "clean": "rimraf dist/*",
-    "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
+    "copy": "copyfiles -f ./src/favicon.ico ./dist",
     "dist": "npm run copy & webpack --env=dist",
     "lint": "eslint ./src",
     "start": "node server.js --env=dev"
@@ -34,6 +34,7 @@
     "file-loader": "^0.8.5",
     "format-number": "^2.0.1",
     "glob": "^7.0.0",
+    "html-webpack-plugin": "^2.21.0",
     "immutability-helper": "^2.0.0",
     "isparta-instrumenter-loader": "^1.0.0",
     "lodash": "^4.13.1",

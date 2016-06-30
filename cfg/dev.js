@@ -2,6 +2,8 @@
 
 let path = require('path');
 let webpack = require('webpack');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+
 let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
 
@@ -12,7 +14,7 @@ let config = Object.assign({}, baseConfig, {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:' + defaultSettings.port,
     'webpack/hot/only-dev-server',
-    './src/index'
+    './src/index',
   ],
   cache: true,
   devtool: 'eval-source-map',
@@ -20,10 +22,13 @@ let config = Object.assign({}, baseConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new BowerWebpackPlugin({
-      searchResolveModulesDirectories: false
-    })
+      searchResolveModulesDirectories: false,
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/index.ejs',
+    }),
   ],
-  module: defaultSettings.getDefaultModules()
+  module: defaultSettings.getDefaultModules(),
 });
 
 // Add needed loaders to the defaults here
@@ -33,7 +38,7 @@ config.module.loaders.push({
   include: [].concat(
     config.additionalPaths,
     [ path.join(__dirname, '/../src') ]
-  )
+  ),
 });
 
 module.exports = config;

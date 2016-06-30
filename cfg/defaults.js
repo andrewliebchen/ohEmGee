@@ -2,17 +2,18 @@
 const path = require('path');
 const srcPath = path.join(__dirname, '/../src');
 const dfltPort = 8000;
+
 function getDefaultModules() {
   return {
     preLoaders: [{
         test: /\.(js|jsx)$/,
         include: srcPath,
-        loader: 'eslint-loader'
+        loader: 'eslint-loader',
       }],
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader'
+        loader: 'style-loader!css-loader!postcss-loader',
       },
       {
         test: /\.scss/,
@@ -20,23 +21,23 @@ function getDefaultModules() {
           'style',
           'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
           'sass',
-          'postcss'
-        ]
+          'postcss',
+        ],
       },
       {
         test: /\.(png|jpg|gif|woff|woff2)$/,
-        loader: 'url-loader?limit=8192'
+        loader: 'url-loader?limit=8192',
       },
       {
         test: /\.(mp4|ogg|svg)$/,
-        loader: 'file-loader'
-      }
-    ]
+        loader: 'file-loader',
+      },
+    ],
   };
 }
 module.exports = {
   srcPath: srcPath,
-  publicPath: '/assets/',
+  publicPath: '/',
   port: dfltPort,
-  getDefaultModules: getDefaultModules
+  getDefaultModules: getDefaultModules,
 };
