@@ -6,6 +6,9 @@ import styles from '../styles/Menubar.scss';
 
 const Menubar = (props) =>
   <div className={styles.menubar}>
+    <div className={styles.budget}>
+      Budget <strong>{format({prefix: '$'})(props.budget, {integerSeparator: true})}</strong>
+    </div>
     <div className={styles.notification}>
       {props.buffer ?
         <span>
@@ -18,9 +21,6 @@ const Menubar = (props) =>
       {props.deleteMode ?
         <strong>Click tool to delete</strong>
       : null}
-    </div>
-    <div className={styles.budget}>
-      Budget <strong>{format({prefix: '$'})(props.budget, {integerSeparator: true})}</strong>
     </div>
   </div>
 
