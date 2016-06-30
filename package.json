@@ -1,5 +1,5 @@
 {
-  "name": "teamArchitecture",
+  "name": "OhEmGee",
   "private": true,
   "version": "0.0.1",
   "description": "",
@@ -11,7 +11,7 @@
     "lint": "eslint ./src",
     "start": "node server.js --env=dev"
   },
-  "repository": "https://www.github.com/andrewliebchen/teamArchitecture",
+  "repository": "https://www.github.com/andrewliebchen/ohemgee",
   "keywords": [],
   "author": "Andrew Liebchen <andrewliebchen@gmail.com>",
   "devDependencies": {
