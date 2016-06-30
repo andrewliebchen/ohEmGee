@@ -11,9 +11,11 @@ export default class App extends Component {
           <h1 className={styles.title}><strong>OhEmGee</strong> is a collection of experiments for fun and profit</h1>
           <nav className={styles.nav}>
             <Link to="simDesk" className={styles.navItem}>
+              <span className={styles.icon}>💻</span>
               <strong>SimDesk</strong> brings the classic game to your desk
             </Link>
             <Link to="cube" className={styles.navItem}>
+              <span className={styles.icon}>😎</span>
               <strong>Cube</strong> three-dee cubes in CSS
             </Link>
           </nav>
