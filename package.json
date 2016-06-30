@@ -56,6 +56,7 @@
     "random-token": "0.0.8",
     "react-addons-css-transition-group": "^15.1.0",
     "react-addons-test-utils": "^15.0.0",
+    "react-document-title": "^2.0.2",
     "react-draggable": "^2.1.2",
     "react-hot-loader": "^1.2.9",
     "react-page-click": "^3.0.0",

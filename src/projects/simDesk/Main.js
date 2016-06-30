@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import update from 'immutability-helper'; // eslint-disable-line
 import randomToken from 'random-token';
+import DocumentTitle from 'react-document-title';
 import Menubar from './components/Menubar';
 import Tools from './components/Tools';
 import Toolbar from './components/Toolbar';
@@ -28,40 +29,42 @@ export default class App extends Component {
   render() {
     const { tools, budget, deleteMode, buffer, deskSize, welcomeModal } = this.state;
     return (
-      <div className={styles.container}>
-        <header className={styles.header}>
-          <span>SimDesk</span>
-        </header>
-        <Menubar
-          buffer={buffer}
-          deleteMode={deleteMode}
-          budget={budget}/>
-        <div className={styles.dragContainer}>
-          <Toolbar
-            toolAction={this.handleSelectItem}
-            deleteTool={this.toggleDelete}
+      <DocumentTitle title="SimDesk | OhEmGee!">
+        <div className={styles.container}>
+          <header className={styles.header}>
+            <span>SimDesk</span>
+          </header>
+          <Menubar
+            buffer={buffer}
             deleteMode={deleteMode}
-            buffer={buffer}/>
-          <Desk
-            deskSize={deskSize}
-            tools={tools}
-            toolClick={this.handleToolClick}
-            deskClick={this.handleDeskClick}/>
+            budget={budget}/>
+          <div className={styles.dragContainer}>
+            <Toolbar
+              toolAction={this.handleSelectItem}
+              deleteTool={this.toggleDelete}
+              deleteMode={deleteMode}
+              buffer={buffer}/>
+            <Desk
+              deskSize={deskSize}
+              tools={tools}
+              toolClick={this.handleToolClick}
+              deskClick={this.handleDeskClick}/>
+          </div>
+          {welcomeModal ?
+            <Modal toggle={this.handleToggleModal}>
+              <h2>Welcome to SimDesk</h2>
+              <p>
+                Your desk is where it all starts.
+                I've collected all the design tools you'll need.
+                Arrange and knoll the tools to make the most out of your workspace.
+              </p>
+              <footer className={styles.modalFooter}>
+                <button className={styles.primaryButton} onClick={this.handleToggleModal}>Get started</button>
+              </footer>
+            </Modal>
+          : null}
         </div>
-        {welcomeModal ?
-          <Modal toggle={this.handleToggleModal}>
-            <h2>Welcome to SimDesk</h2>
-            <p>
-              Your desk is where it all starts.
-              I've collected all the design tools you'll need.
-              Arrange and knoll the tools to make the most out of your workspace.
-            </p>
-            <footer className={styles.modalFooter}>
-              <button className={styles.primaryButton} onClick={this.handleToggleModal}>Get started</button>
-            </footer>
-          </Modal>
-        : null}
-      </div>
+      </DocumentTitle>
     );
   }
 
