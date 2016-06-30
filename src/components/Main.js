@@ -7,12 +7,16 @@ export default class App extends Component {
   render() {
     return (
       <DocumentTitle title="OhEmGee!">
-        <div className={styles.wrapper}>
-          <h1>OhEmGee</h1>
-          <ul>
-            <li><Link to="simDesk">SimDesk</Link></li>
-            <li><Link to="cube">Cube</Link></li>
-          </ul>
+        <div className={styles.container}>
+          <h1 className={styles.title}><strong>OhEmGee</strong> is a collection of experiments for fun and profit</h1>
+          <nav className={styles.nav}>
+            <Link to="simDesk" className={styles.navItem}>
+              <strong>SimDesk</strong> brings the classic game to your desk
+            </Link>
+            <Link to="cube" className={styles.navItem}>
+              <strong>Cube</strong> three-dee cubes in CSS
+            </Link>
+          </nav>
         </div>
       </DocumentTitle>
     );
