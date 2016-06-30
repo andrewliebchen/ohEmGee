@@ -84,7 +84,7 @@ $toolbar-width: $button-size * 2 + $button-offset * 6;
 }
 
 .bar {
-  // animation: bar 6s steps(4, start) infinite alternate-reverse;
+  animation: bar 6s steps(4, start) infinite alternate-reverse;
   transform-origin: 50% 100%;
   background-color: $color-foreground;
   position: absolute;

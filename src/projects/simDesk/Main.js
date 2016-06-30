@@ -49,7 +49,7 @@ export default class App extends Component {
             deskClick={this.handleDeskClick}/>
         </div>
         {welcomeModal ?
-          <Modal>
+          <Modal toggle={this.handleToggleModal}>
             <h2>Welcome to SimDesk</h2>
             <p>
               Your desk is where it all starts.
@@ -57,7 +57,6 @@ export default class App extends Component {
               Arrange and knoll the tools to make the most out of your workspace.
             </p>
             <footer className={styles.modalFooter}>
-              <button className={styles.secondaryButton}>What is this?</button>
               <button className={styles.primaryButton} onClick={this.handleToggleModal}>Get started</button>
             </footer>
           </Modal>

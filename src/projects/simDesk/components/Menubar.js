@@ -1,29 +1,33 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 import _ from 'lodash';
 import format from 'format-number';
 import Tools from './Tools';
 import styles from '../styles/Menubar.scss';
 
-export default class Menubar extends Component {
-  render() {
-    const { buffer, deleteMode, budget } = this.props;
-    return (
-      <div className={styles.menubar}>
-        <div className={styles.notification}>
-          {buffer ?
-            <span>
-              <strong>{_.capitalize(buffer)} {`$${_.find(Tools, {name: buffer}).price}`}</strong>
-              <span> Place item on desk to purchase</span>
-            </span>
-          : null}
-          {deleteMode ?
-            <strong>Click tool to delete</strong>
-          : null}
-        </div>
-        <div className={styles.budget}>
-          Budget <strong>{format({prefix: '$'})(budget, {integerSeparator: true})}</strong>
-        </div>
-      </div>
-    );
-  }
-}
+const Menubar = (props) =>
+  <div className={styles.menubar}>
+    <div className={styles.notification}>
+      {props.buffer ?
+        <span>
+          <strong>
+            {_.capitalize(props.buffer)} {`$${_.find(Tools, {name: props.buffer}).price}`}
+          </strong>
+          <span> Place item on desk to purchase</span>
+        </span>
+      : null}
+      {props.deleteMode ?
+        <strong>Click tool to delete</strong>
+      : null}
+    </div>
+    <div className={styles.budget}>
+      Budget <strong>{format({prefix: '$'})(props.budget, {integerSeparator: true})}</strong>
+    </div>
+  </div>
+
+Menubar.propTypes = {
+  buffer: PropTypes.string,
+  deleteMode: PropTypes.bool,
+  budget: PropTypes.number,
+};
+
+export default Menubar;
