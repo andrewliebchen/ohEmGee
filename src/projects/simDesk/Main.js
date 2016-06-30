@@ -19,6 +19,7 @@ export default class App extends Component {
       budget: 10000,
       buffer: null,
       welcomeModal: true,
+      aboutModal: false,
       deskSize: {
         width: 600,
         height: 300,
@@ -27,7 +28,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { tools, budget, deleteMode, buffer, deskSize, welcomeModal } = this.state;
+    const { tools, budget, deleteMode, buffer, deskSize, welcomeModal, aboutModal } = this.state;
     return (
       <DocumentTitle title="SimDesk | OhEmGee!">
         <div className={styles.container}>
@@ -43,7 +44,8 @@ export default class App extends Component {
               toolAction={this.handleSelectItem}
               deleteTool={this.toggleDelete}
               deleteMode={deleteMode}
-              buffer={buffer}/>
+              buffer={buffer}
+              toggleAboutModal={this.toggleAboutModal}/>
             <Desk
               deskSize={deskSize}
               tools={tools}
@@ -51,7 +53,7 @@ export default class App extends Component {
               deskClick={this.handleDeskClick}/>
           </div>
           {welcomeModal ?
-            <Modal toggle={this.handleToggleModal}>
+            <Modal toggle={this.toggleWelcomeModal}>
               <h2>Welcome to SimDesk</h2>
               <p>
                 Your desk is where it all starts.
@@ -59,7 +61,24 @@ export default class App extends Component {
                 Arrange and knoll the tools to make the most out of your workspace.
               </p>
               <footer className={styles.modalFooter}>
-                <button className={styles.primaryButton} onClick={this.handleToggleModal}>Get started</button>
+                <button className={styles.primaryButton} onClick={this.toggleWelcomeModal}>Get started</button>
+              </footer>
+            </Modal>
+          : null}
+          {aboutModal ?
+            <Modal toggle={this.toggleAboutModal}>
+              <h2>Wut.</h2>
+              <p>
+                SimCity was an important part of my life.
+                I wanted to pay homage, albeit at a smaller scale.
+              </p>
+              <p>
+                This project is built with ReactJS, CSS Modules, and Sass.
+                All illustrations are by me.
+                Got questions? Hit me up on <a href="https://twitter.com/andrewliebchen">Twitter</a>.
+              </p>
+              <footer className={styles.modalFooter}>
+                <button className={styles.primaryButton} onClick={this.toggleAboutModal}>Thanks!</button>
               </footer>
             </Modal>
           : null}
@@ -142,7 +161,11 @@ export default class App extends Component {
     }
   }
 
-  handleToggleModal = () => {
+  toggleWelcomeModal = () => {
     this.setState({welcomeModal: !this.state.welcomeModal});
+  }
+
+  toggleAboutModal = () => {
+    this.setState({aboutModal: !this.state.aboutModal});
   }
 }

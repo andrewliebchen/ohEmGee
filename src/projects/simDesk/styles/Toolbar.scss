@@ -101,3 +101,34 @@ $toolbar-width: $button-size * 2 + $button-offset * 6;
 .shadow {
   composes: shadow from "./_helpers.scss";
 }
+
+:local {
+  [data-hint] {
+    position: relative;
+
+    &::after {
+      content: attr(data-hint);
+      box-shadow: 0 0 0 2px $color-background;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      background-color: $color-foreground;
+      color: $color-background;
+      line-height: 2;
+      padding: 0 0.5rem;
+      margin-left: 0.5rem;
+      transform: translateY(-50%);
+      opacity: 0;
+      pointer-events: none;
+      font-weight: bold;
+    }
+
+    &:hover {
+      z-index: 1;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

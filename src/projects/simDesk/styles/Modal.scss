@@ -16,10 +16,14 @@
 .content {
   @include border;
   background-color: $color-background;
-  width: 30vw;
+  width: 42vw;
   position: relative;
   z-index: 1;
   padding: 1rem;
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 .shadow {

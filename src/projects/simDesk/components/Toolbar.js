@@ -10,6 +10,7 @@ export default class Toolbar extends Component {
     deleteTool: PropTypes.func,
     deleteMode: PropTypes.bool,
     buffer: PropTypes.string,
+    toggleAboutModal: PropTypes.func,
   }
 
   renderIconGraphic(graphic) {
@@ -25,7 +26,7 @@ export default class Toolbar extends Component {
   }
 
   render() {
-    const { toolAction, deleteTool, deleteMode, buffer } = this.props;
+    const { toolAction, deleteTool, deleteMode, buffer, toggleAboutModal } = this.props;
     const tools = Tools.map(tool => tool);
     return (
       <Draggable
@@ -52,6 +53,15 @@ export default class Toolbar extends Component {
                   	c-0.8-0.8-2.1-0.8-2.8,0L15,11.9L8.4,5.3c-0.8-0.8-2.1-0.8-2.8,0C5.2,5.7,5,6.2,5,6.7s0.2,1,0.6,1.4l6.6,6.6l-6.6,6.6
                   	C5.2,21.7,5,22.2,5,22.7s0.2,1,0.6,1.4c0.8,0.8,2.1,0.8,2.8,0L15,17.5z"/>
                 )}
+              </button>
+              <button
+                className={styles.button}
+                onClick={toggleAboutModal}
+                data-hint="About">
+                <svg version="1.1" x="0px" y="0px" viewBox="0 0 32 32">
+                  <path d="M16,31C7.7,31,1,24.3,1,16C1,7.7,7.7,1,16,1c8.3,0,15,6.7,15,15C31,24.3,24.3,31,16,31z M16,2C8.3,2,2,8.3,2,16  s6.3,14,14,14s14-6.3,14-14S23.7,2,16,2z"/>
+                  <path d="M16,10c-0.8,0-1.5-0.7-1.5-1.5S15.2,7,16,7s1.5,0.7,1.5,1.5S16.8,10,16,10z M16,8c-0.3,0-0.5,0.2-0.5,0.5S15.7,9,16,9  s0.5-0.2,0.5-0.5S16.3,8,16,8z"/><path d="M17.5,25c-0.9,0-1.6-0.3-2.1-0.8c-0.4-0.4-0.5-1-0.4-1.6l1-7.3c0-0.3,0-0.6-0.2-0.8c-0.2-0.3-0.7-0.5-1.3-0.5  c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5c0.9,0,1.6,0.3,2.1,0.8c0.4,0.4,0.5,1,0.4,1.6l-1,7.3c0,0.3,0,0.6,0.2,0.8  c0.2,0.3,0.7,0.5,1.3,0.5c0.3,0,0.5,0.2,0.5,0.5S17.8,25,17.5,25z"/>
+                </svg>
               </button>
               {tools.map((tool, i) =>
                 <button
