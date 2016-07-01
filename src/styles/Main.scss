@@ -28,21 +28,21 @@ $brand-primary: #0074D9;
 
 .nav {
   margin-top: 4rem;
-  border: 2px solid $brand-primary;
+  border: 2px solid $gray;
   border-radius: 0.25rem;
 }
 
 .navItem {
   display: block;
   padding: 1rem 1rem 1rem 3rem;
-  color: $brand-primary;
+  color: $gray-dark;
   position: relative;
   border-top: inherit;
 
   &:hover {
-    background-color: $brand-primary;
+    background-color: $gray-dark;
     color: white;
-    border-color: $brand-primary;
+    border-color: $gray-dark;
     text-decoration: none;
   }
 
