@@ -29,6 +29,8 @@ let config = Object.assign({}, baseConfig, {
     new HtmlWebpackPlugin({
       filename: '../index.html',
       template: './src/index.ejs',
+      inject: false,
+      bundles: '/dist/app.js',
     }),
   ],
   module: defaultSettings.getDefaultModules(),
