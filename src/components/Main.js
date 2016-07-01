@@ -3,8 +3,6 @@ import DocumentTitle from 'react-document-title';
 import { Link } from 'react-router';
 import styles from '../styles/Main.scss';
 
-const avatar = require('../assets/images/andrew.png');
-
 export default class App extends Component {
   render() {
     return (
@@ -24,9 +22,6 @@ export default class App extends Component {
             </Link>
           </nav>
           <footer className={styles.footer}>
-            <div className={styles.avatar}>
-              <img src={avatar}/>
-            </div>
             <div className={styles.bio}>
               All this stuff is made by me, <a href="http://andrewliebchen.com">Andrew Liebchen</a>.
               The source is available on <a href="https://github.com/andrewliebchen/ohemgee">Github</a>, if you're interested.

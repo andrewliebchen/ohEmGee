@@ -6,7 +6,7 @@ const args = require('minimist')(process.argv.slice(2));
 // List of allowed environments
 const allowedEnvs = ['dev', 'dist', 'test'];
 
-// Set the correct environment
+// Set the correct environment...Could use this later for relative paths of assets
 let env;
 if (args._.length > 0 && args._.indexOf('start') !== -1) {
   env = 'test';
