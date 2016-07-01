@@ -30,7 +30,7 @@ let config = Object.assign({}, baseConfig, {
       filename: '../index.html',
       template: './src/index.ejs',
       inject: false,
-      bundle: '/dist/app.js',
+      bundle: 'dist/app.js',
     }),
   ],
   module: defaultSettings.getDefaultModules(),
