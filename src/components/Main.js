@@ -20,6 +20,10 @@ export default class App extends Component {
               <span className={styles.icon}>😎</span>
               <strong>Cube</strong> three-dee cubes in CSS
             </Link>
+            <Link to="bike" className={styles.navItem}>
+              <span className={styles.icon}>🚴</span>
+              <strong>Bike</strong> what's this thing for?
+            </Link>
           </nav>
           <footer className={styles.footer}>
             <div className={styles.bio}>
