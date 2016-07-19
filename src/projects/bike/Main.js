@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import gearsize from 'gear-size-calculator';
-import _ from 'lodash';
 import Cog from './components/Cog';
+import styles from './styles/Main.scss';
 
 const calculator = new gearsize.Calculator();
 
@@ -20,10 +20,9 @@ export default class Main extends Component {
   render() {
     const { chainRings, cassette, rimDiameter, tireSize, cadence } = this.state;
     const gearInfo = this._generateGearSizes();
-    console.log(gearInfo);
+    const gearStyle = {animationDuration: `${60 / cadence}s`};
     return (
-      <div>
-        <h1>Bike!</h1>
+      <div className={styles.controls}>
         <div>
           <label>Chain ring</label>
           <input
@@ -52,24 +51,34 @@ export default class Main extends Component {
             defaultValue={tireSize}
             onChange={this.handleUpdate.bind(null, 'tireSize')}/>
         </div>
+        <div>
+          <label>Cadence</label>
+          <input
+            type="number"
+            defaultValue={cadence}
+            onChange={this.handleUpdate.bind(null, 'cadence')}/>
+        </div>
 
-        {gearInfo &&
-          <ul>
-            <li>Gear ratio: {gearInfo.details.ratio}</li>
-            <li>Rim and tire diameter: {gearInfo.details.rimAndTyreDiameterInInches} in.</li>
-            <li>Gear size: {gearInfo.gearSize} in.</li>
-            <li>Max speed: {cadence * gearInfo.gearSize * (Math.PI / 1056)} mph</li>
-          </ul>}
+        <ul className={styles.info}>
+          <li>Gear ratio: {gearInfo.details.ratio}</li>
+          <li>Rim and tire diameter: {gearInfo.details.rimAndTyreDiameterInInches} in.</li>
+          <li>Gear size: {gearInfo.gearSize} in.</li>
+          <li>Max speed: {cadence * gearInfo.gearSize * (Math.PI / 1056)} mph</li>
+        </ul>
 
-        <Cog
-          teeth={chainRings}
-          size={256}
-          className="chainRing"/>
-        <Cog
-          teeth={cassette}
-          size={84}
-          d2={0.85}
-          className="sprocket"/>
+        <div className={styles.bike}>
+          <Cog
+            teeth={cassette}
+            size={84}
+            d2={0.85}
+            className={styles.sprocket}
+            style={gearStyle}/>
+          <Cog
+            teeth={chainRings}
+            size={256}
+            className={styles.chainRing}
+            style={gearStyle}/>
+        </div>
       </div>
     );
   }
@@ -94,6 +103,9 @@ export default class Main extends Component {
         break;
       case 'tireSize':
         this.setState({tireSize: value});
+        break;
+      case 'cadence':
+        this.setState({cadence: value});
         break;
       default:
         return false;
