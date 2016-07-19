@@ -9,55 +9,57 @@ export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chainRings: [48],
+      chainRings: [50],
       cassette: [16],
       rimDiameter: 700,
       tireSize: 28,
+      cadence: 90,
     }
   }
 
   render() {
-    const { chainRings, cassette, rimDiameter, tireSize } = this.state;
-    const gearInfo = _.flatten(this._generateGearSizes())[0];
+    const { chainRings, cassette, rimDiameter, tireSize, cadence } = this.state;
+    const gearInfo = this._generateGearSizes();
+    console.log(gearInfo);
     return (
       <div>
         <h1>Bike!</h1>
         <div>
           <label>Chain ring</label>
           <input
-            type="text"
+            type="number"
             defaultValue={chainRings}
             onChange={this.handleUpdate.bind(null, 'chainRing')}/>
         </div>
         <div>
           <label>Sprocket</label>
           <input
-            type="text"
+            type="number"
             defaultValue={cassette}
             onChange={this.handleUpdate.bind(null, 'sprocket')}/>
         </div>
         <div>
           <label>Rim diameter</label>
           <input
-            type="text"
+            type="number"
             defaultValue={rimDiameter}
             onChange={this.handleUpdate.bind(null, 'rimDiameter')}/>
         </div>
         <div>
           <label>Tire size</label>
           <input
-            type="text"
+            type="number"
             defaultValue={tireSize}
             onChange={this.handleUpdate.bind(null, 'tireSize')}/>
         </div>
 
-        <ul>
-          <li>Gear ratio: {gearInfo.details.ratio}</li>
-          <li>Rim and tire diameter: {gearInfo.details.rimAndTyreDiameterInInches} in.</li>
-          <li>
-            <strong>Gear size: {gearInfo.gearSize} in.</strong>
-          </li>
-        </ul>
+        {gearInfo &&
+          <ul>
+            <li>Gear ratio: {gearInfo.details.ratio}</li>
+            <li>Rim and tire diameter: {gearInfo.details.rimAndTyreDiameterInInches} in.</li>
+            <li>Gear size: {gearInfo.gearSize} in.</li>
+            <li>Max speed: {cadence * gearInfo.gearSize * (Math.PI / 1056)} mph</li>
+          </ul>}
 
         <Cog
           teeth={chainRings}
@@ -75,20 +77,24 @@ export default class Main extends Component {
   _generateGearSizes = () => {
     const { chainRings, cassette, rimDiameter, tireSize } = this.state;
     const result = calculator.generateGearSizesInInches(chainRings, cassette, rimDiameter, tireSize);
-    return result;
+    return Object.assign(...result[0]);
   }
 
   handleUpdate = (component, event) => {
-    const value = event.target.value;
+    const value = parseInt(event.target.value);
     switch (component) {
       case 'chainRing':
         this.setState({chainRings: [value]});
+        break;
       case 'sprocket':
         this.setState({cassette: [value]});
+        break;
       case 'rimDiameter':
         this.setState({rimDiameter: value});
+        break;
       case 'tireSize':
         this.setState({tireSize: value});
+        break;
       default:
         return false;
     }
