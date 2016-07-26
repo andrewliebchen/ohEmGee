@@ -4,7 +4,7 @@ import styles from '../styles/Bike.scss';
 
 const Bike = (props) => {
   const chainRingStyle = {animationDuration: `${60 / props.cadence}s`};
-  const sprocketStyle = {animationDuration: `${props.ratio * (60 / props.cadence)}s`}
+  const sprocketStyle = {animationDuration: `${60 / (props.ratio * props.cadence)}s`}
   return (
     <div className={styles.bikeContainer}>
       <svg
@@ -17,13 +17,13 @@ const Bike = (props) => {
       </svg>
       <Cog
         teeth={props.cassette}
-        size={84}
+        size={90}
         d2={0.85}
         className={styles.sprocket}
         style={sprocketStyle}/>
       <Cog
         teeth={props.chainRings}
-        size={256}
+        size={200}
         className={styles.chainRing}
         style={chainRingStyle}/>
     </div>
