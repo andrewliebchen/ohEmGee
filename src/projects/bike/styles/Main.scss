@@ -4,3 +4,9 @@
   left: 1rem;
   z-index: 1;
 }
+
+.pause {
+  * {
+    animation-play-state: paused;
+  }
+}

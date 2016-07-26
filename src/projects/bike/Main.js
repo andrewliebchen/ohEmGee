@@ -14,14 +14,15 @@ export default class Main extends Component {
       rimDiameter: 700,
       tireSize: 28,
       cadence: 90,
+      animations: true,
     }
   }
 
   render() {
-    const { chainRings, cassette, rimDiameter, tireSize, cadence } = this.state;
+    const { chainRings, cassette, rimDiameter, tireSize, cadence, animation } = this.state;
     const gearInfo = this._generateGearSizes();
     return (
-      <div>
+      <div className={!animation ? styles.pause : ''}>
         <div className={styles.controls}>
           <div>
             <label>Chain ring</label>
@@ -65,6 +66,10 @@ export default class Main extends Component {
             <li>Gear size: {gearInfo.gearSize} in.</li>
             <li>Max speed: {cadence * gearInfo.gearSize * (Math.PI / 1056)} mph</li>
           </ul>
+
+          <button onClick={this.toggleAnimation.bind(this)}>
+            {animation ? 'Pause' : 'Play'} animation
+          </button>
         </div>
 
         <Bike
@@ -103,5 +108,9 @@ export default class Main extends Component {
       default:
         return false;
     }
+  }
+
+  toggleAnimation() {
+    this.setState({animation: !this.state.animation});
   }
 }
