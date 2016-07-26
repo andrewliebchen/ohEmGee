@@ -21,55 +21,57 @@ export default class Main extends Component {
     const { chainRings, cassette, rimDiameter, tireSize, cadence } = this.state;
     const gearInfo = this._generateGearSizes();
     return (
-      <div className={styles.controls}>
-        <div>
-          <label>Chain ring</label>
-          <input
-            type="number"
-            defaultValue={chainRings}
-            onChange={this.handleUpdate.bind(null, 'chainRing')}/>
-        </div>
-        <div>
-          <label>Sprocket</label>
-          <input
-            type="number"
-            defaultValue={cassette}
-            onChange={this.handleUpdate.bind(null, 'sprocket')}/>
-        </div>
-        <div>
-          <label>Rim diameter</label>
-          <input
-            type="number"
-            defaultValue={rimDiameter}
-            onChange={this.handleUpdate.bind(null, 'rimDiameter')}/>
-        </div>
-        <div>
-          <label>Tire size</label>
-          <input
-            type="number"
-            defaultValue={tireSize}
-            onChange={this.handleUpdate.bind(null, 'tireSize')}/>
-        </div>
-        <div>
-          <label>Cadence</label>
-          <input
-            type="number"
-            defaultValue={cadence}
-            onChange={this.handleUpdate.bind(null, 'cadence')}/>
-        </div>
+      <div>
+        <div className={styles.controls}>
+          <div>
+            <label>Chain ring</label>
+            <input
+              type="number"
+              defaultValue={chainRings}
+              onChange={this.handleUpdate.bind(null, 'chainRing')}/>
+          </div>
+          <div>
+            <label>Sprocket</label>
+            <input
+              type="number"
+              defaultValue={cassette}
+              onChange={this.handleUpdate.bind(null, 'sprocket')}/>
+          </div>
+          <div>
+            <label>Rim diameter</label>
+            <input
+              type="number"
+              defaultValue={rimDiameter}
+              onChange={this.handleUpdate.bind(null, 'rimDiameter')}/>
+          </div>
+          <div>
+            <label>Tire size</label>
+            <input
+              type="number"
+              defaultValue={tireSize}
+              onChange={this.handleUpdate.bind(null, 'tireSize')}/>
+          </div>
+          <div>
+            <label>Cadence</label>
+            <input
+              type="number"
+              defaultValue={cadence}
+              onChange={this.handleUpdate.bind(null, 'cadence')}/>
+          </div>
 
-        <ul className={styles.info}>
-          <li>Gear ratio: {gearInfo.details.ratio}</li>
-          <li>Rim and tire diameter: {gearInfo.details.rimAndTyreDiameterInInches} in.</li>
-          <li>Gear size: {gearInfo.gearSize} in.</li>
-          <li>Max speed: {cadence * gearInfo.gearSize * (Math.PI / 1056)} mph</li>
-        </ul>
+          <ul className={styles.info}>
+            <li>Gear ratio: {gearInfo.details.ratio}</li>
+            <li>Rim and tire diameter: {gearInfo.details.rimAndTyreDiameterInInches} in.</li>
+            <li>Gear size: {gearInfo.gearSize} in.</li>
+            <li>Max speed: {cadence * gearInfo.gearSize * (Math.PI / 1056)} mph</li>
+          </ul>
+        </div>
 
         <Bike
           cassette={cassette}
           cadence={cadence}
           chainRings={chainRings}
-          gearSize={gearInfo.gearSize}/>
+          ratio={gearInfo.details.ratio}/>
       </div>
     );
   }

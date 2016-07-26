@@ -4,7 +4,7 @@ import styles from '../styles/Bike.scss';
 
 const Bike = (props) => {
   const chainRingStyle = {animationDuration: `${60 / props.cadence}s`};
-  const sprocketStyle = {animationDuration: `${60 / (props.cadence * props.gearSize)}s`}
+  const sprocketStyle = {animationDuration: `${props.ratio * (60 / props.cadence)}s`}
   return (
     <div className={styles.bikeContainer}>
       <svg
@@ -34,6 +34,7 @@ Bike.propTypes = {
   cadence: PropTypes.number,
   cassette: PropTypes.number,
   chainRings: PropTypes.number,
+  ratio: PropTypes.number,
 };
 
 export default Bike;
