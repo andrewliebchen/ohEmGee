@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import gearsize from 'gear-size-calculator';
-import Cog from './components/Cog';
+import Bike from './components/Bike';
 import styles from './styles/Main.scss';
 
 const calculator = new gearsize.Calculator();
@@ -20,7 +20,6 @@ export default class Main extends Component {
   render() {
     const { chainRings, cassette, rimDiameter, tireSize, cadence } = this.state;
     const gearInfo = this._generateGearSizes();
-    const gearStyle = {animationDuration: `${60 / cadence}s`};
     return (
       <div className={styles.controls}>
         <div>
@@ -66,19 +65,11 @@ export default class Main extends Component {
           <li>Max speed: {cadence * gearInfo.gearSize * (Math.PI / 1056)} mph</li>
         </ul>
 
-        <div className={styles.bike}>
-          <Cog
-            teeth={cassette}
-            size={84}
-            d2={0.85}
-            className={styles.sprocket}
-            style={gearStyle}/>
-          <Cog
-            teeth={chainRings}
-            size={256}
-            className={styles.chainRing}
-            style={gearStyle}/>
-        </div>
+        <Bike
+          cassette={cassette}
+          cadence={cadence}
+          chainRings={chainRings}
+          gearSize={gearInfo.gearSize}/>
       </div>
     );
   }

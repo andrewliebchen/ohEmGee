@@ -1,0 +1,41 @@
+@keyframes rotate {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(-359deg);
+  }
+}
+
+.animation {
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: 50% 50%;
+  position: absolute;
+  top: 50%;
+}
+
+.bikeContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-12%, -61%, 0);
+}
+
+.wheel {
+  composes: animation;
+  fill: #ccc;
+  left: -15vw;
+}
+
+.sprocket {
+  composes: animation;
+  left: -15vw;
+}
+
+.chainRing {
+  composes: animation;
+  left: 15vw;
+}
