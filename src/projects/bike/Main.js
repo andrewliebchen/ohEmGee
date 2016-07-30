@@ -22,7 +22,7 @@ export default class Main extends Component {
     const { chainRings, cassette, rimDiameter, tireSize, cadence, animation } = this.state;
     const gearInfo = this._generateGearSizes();
     return (
-      <div className={!animation ? styles.pause : ''}>
+      <div className={!animation ? styles.pause : styles.container}>
         <div className={styles.controls}>
           <div>
             <label>Chain ring</label>

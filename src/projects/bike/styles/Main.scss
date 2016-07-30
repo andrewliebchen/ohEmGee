@@ -1,3 +1,5 @@
+@import "helpers";
+
 .controls {
   position: absolute;
   top: 1rem;
@@ -5,7 +7,16 @@
   z-index: 1;
 }
 
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: $gray-light;
+  color: $gray-dark;
+}
+
 .pause {
+  composes: container;
+
   * {
     animation-play-state: paused;
   }
