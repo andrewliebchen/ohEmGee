@@ -1,5 +1,12 @@
 @import "helpers";
 
+:local {
+  html,
+  body {
+    background-color: #444;
+  }
+}
+
 .controls {
   position: absolute;
   top: 1rem;
@@ -8,9 +15,20 @@
 }
 
 .container {
-  width: 100vw;
-  height: 100vh;
-  background-color: $gray-light;
+  $offset: 3vw;
+  position: fixed;
+  top: $offset;
+  left: $offset;
+  right: $offset;
+  bottom: $offset;
+  overflow: hidden;
+  border-radius: 8px;
+  background-image: linear-gradient(to bottom, lighten($gray-light, 5%), $gray-light);
+  box-shadow:
+    inset 0 0 50px darken($gray-light, 10%),
+    inset 0 3px 0 rgba($gray-dark, 0.3),
+    0 2px 0 rgba(white, 0.15);
+  border: 1px solid #222;
   color: $gray-dark;
 }
 
