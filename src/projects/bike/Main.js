@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import gearsize from 'gear-size-calculator';
 import Bike from './components/Bike';
+import Input from './components/Input';
 import styles from './styles/Main.scss';
 
 const calculator = new gearsize.Calculator();
@@ -24,41 +25,26 @@ export default class Main extends Component {
     return (
       <div className={!animation ? styles.pause : styles.container}>
         <div className={styles.controls}>
-          <div>
-            <label>Chain ring</label>
-            <input
-              type="number"
-              defaultValue={chainRings}
-              onChange={this.handleUpdate.bind(null, 'chainRing')}/>
-          </div>
-          <div>
-            <label>Sprocket</label>
-            <input
-              type="number"
-              defaultValue={cassette}
-              onChange={this.handleUpdate.bind(null, 'sprocket')}/>
-          </div>
-          <div>
-            <label>Rim diameter</label>
-            <input
-              type="number"
-              defaultValue={rimDiameter}
-              onChange={this.handleUpdate.bind(null, 'rimDiameter')}/>
-          </div>
-          <div>
-            <label>Tire size</label>
-            <input
-              type="number"
-              defaultValue={tireSize}
-              onChange={this.handleUpdate.bind(null, 'tireSize')}/>
-          </div>
-          <div>
-            <label>Cadence</label>
-            <input
-              type="number"
-              defaultValue={cadence}
-              onChange={this.handleUpdate.bind(null, 'cadence')}/>
-          </div>
+          <Input
+            label="Chain ring"
+            defaultValue={chainRings}
+            onChange={this.handleUpdate.bind(null, 'chainRing')}/>
+          <Input
+            label="Sprocket"
+            defaultValue={cassette}
+            onChange={this.handleUpdate.bind(null, 'sprocket')}/>
+          <Input
+            label="Rim diameter"
+            defaultValue={rimDiameter}
+            onChange={this.handleUpdate.bind(null, 'rimDiameter')}/>
+          <Input
+            label="Tire size"
+            defaultValue={tireSize}
+            onChange={this.handleUpdate.bind(null, 'tireSize')}/>
+          <Input
+            label="Cadence"
+            defaultValue={cadence}
+            onChange={this.handleUpdate.bind(null, 'cadence')}/>
 
           <ul className={styles.info}>
             <li>Gear ratio: {gearInfo.details.ratio}</li>
