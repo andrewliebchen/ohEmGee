@@ -8,9 +8,9 @@
   right: $offset;
   bottom: $offset;
   overflow: hidden;
-  background-image: linear-gradient(to bottom, lighten($gray-light, 5%), $gray-light);
-  box-shadow: inset 0 0 50px darken($gray-light, 5%);
-  color: $gray-dark;
+  background-color: $color-light;
+  box-shadow: inset 0 0 50px darken($color-light, 5%);
+  color: $color-dark;
 }
 
 .pause {

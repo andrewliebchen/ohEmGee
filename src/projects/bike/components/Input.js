@@ -15,7 +15,7 @@ const Input = (props) =>
 
 Input.propTypes = {
   label: PropTypes.string,
-  defaultValue: PropTypes.number,
+  defaultValue: PropTypes.string,
   onChange: PropTypes.func,
 };
 

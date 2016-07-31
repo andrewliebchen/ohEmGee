@@ -28,7 +28,7 @@
 
 .wheel {
   composes: animation;
-  fill: lighten($gray, 38%);
+  fill: darken($color-light, 2%);
   left: -15vw;
 }
 

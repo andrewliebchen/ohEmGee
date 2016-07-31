@@ -1,0 +1,24 @@
+@import "helpers";
+
+.inputContainer {
+  margin-bottom: 1rem;
+}
+
+.label {
+  padding-right: 0.25rem;
+}
+
+.input {
+  appearance: none;
+  border: 0;
+  background: none;
+  font-weight: bold;
+  color: $color-dark;
+  display: inline-block;
+  width: auto;
+
+  &::selection {
+    background-color: $color;
+    color: white;
+  }
+}
