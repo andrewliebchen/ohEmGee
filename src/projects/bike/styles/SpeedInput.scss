@@ -1,0 +1,54 @@
+@import "helpers";
+
+.container {
+  position: relative;
+  height: 1.5rem;
+}
+
+.range {
+  display: block;
+  width: 100%;
+  appearance: none;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &::-webkit-slider-thumb {
+    $size: 1.5rem;
+    appearance: none;
+    border-radius: $size / 2;
+    width: $size;
+    height: $size;
+    margin-top: -($size / 2);
+    background-color: $color-dark;
+    cursor: ew-resize;
+  }
+
+  &::-webkit-slider-runnable-track {
+    height: 1px;
+    width: 100%;
+    background-color: $color-dark;
+  }
+}
+
+.label {
+  position: absolute;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.cadenceLabel {
+  composes: label;
+  bottom: 100%;
+}
+
+.speedLabel {
+  composes: label;
+  top: 100%;
+}
+
+.labelValue {
+  font-weight: bold;
+  padding-left: 5px;
+}

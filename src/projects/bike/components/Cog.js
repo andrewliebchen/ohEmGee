@@ -8,11 +8,10 @@ export default class Cog extends Component {
     d3: 0.125,
     teeth: 8,
     splay: .375,
-    fill: 'currentcolor',
   }
 
   render() {
-    const { size, d1, d2, d3, teeth, splay, fill, className, style } = this.props;
+    const { size, d1, d2, d3, teeth, splay, className, style } = this.props;
 
     // Center
     const c = size / 2
@@ -106,7 +105,6 @@ export default class Cog extends Component {
         viewBox={viewBox}
         width={size}
         height={size}
-        fill={fill}
         className={className}
         style={style}>
         <path d={pathData} />

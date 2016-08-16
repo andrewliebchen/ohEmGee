@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import gearsize from 'gear-size-calculator';
+import mixture from 'color-mixture';
+import SpeedInput from './components/SpeedInput';
 import Bike from './components/Bike';
 import Input from './components/Input';
 import styles from './styles/Main.scss';
 
 const calculator = new gearsize.Calculator();
+
+const color1 = new mixture.Color('#04e9fe');
+const color2 = new mixture.Color('#01FF70');
+
 
 export default class Main extends Component {
   constructor(props) {
@@ -22,9 +28,12 @@ export default class Main extends Component {
   render() {
     const { chainRings, cassette, rimDiameter, tireSize, cadence, animation } = this.state;
     const gearInfo = this._generateGearSizes();
+    const backgroundColor = color1.mix(color2, cadence / 130);
     return (
-      <div className={!animation ? styles.pause : styles.container}>
-        <div className={styles.controls}>
+      <div
+        className={!animation ? styles.pause : styles.container}
+        style={{backgroundColor: backgroundColor.toString()}}>
+        <div className={styles.column}>
           <Input
             label="Chain ring"
             defaultValue={chainRings}
@@ -33,6 +42,8 @@ export default class Main extends Component {
             label="Sprocket"
             defaultValue={cassette}
             onChange={this.handleUpdate.bind(null, 'sprocket')}/>
+          <div>Gear ratio <strong>{gearInfo.details.ratio}</strong></div>
+          <div>Gear size <strong>{gearInfo.gearSize} in.</strong></div>
           <Input
             label="Rim diameter"
             defaultValue={rimDiameter}
@@ -41,28 +52,22 @@ export default class Main extends Component {
             label="Tire size"
             defaultValue={tireSize}
             onChange={this.handleUpdate.bind(null, 'tireSize')}/>
-          <Input
-            label="Cadence"
-            defaultValue={cadence}
-            onChange={this.handleUpdate.bind(null, 'cadence')}/>
-
-          <ul className={styles.info}>
-            <li>Gear ratio: {gearInfo.details.ratio}</li>
-            <li>Rim and tire diameter: {gearInfo.details.rimAndTyreDiameterInInches} in.</li>
-            <li>Gear size: {gearInfo.gearSize} in.</li>
-            <li>Max speed: {cadence * gearInfo.gearSize * (Math.PI / 1056)} mph</li>
-          </ul>
-
+          <div>Wheel diameter <strong>{gearInfo.details.rimAndTyreDiameterInInches} in.</strong></div>
+          <SpeedInput
+            cadence={cadence}
+            gearSize={gearInfo.gearSize}
+            update={this.handleUpdate}/>
           <button onClick={this.toggleAnimation.bind(this)}>
             {animation ? 'Pause' : 'Play'} animation
           </button>
         </div>
-
-        <Bike
-          cassette={cassette}
-          cadence={cadence}
-          chainRings={chainRings}
-          ratio={gearInfo.details.ratio}/>
+        <div className={styles.column}>
+          <Bike
+            cassette={cassette}
+            cadence={cadence}
+            chainRings={chainRings}
+            ratio={gearInfo.details.ratio}/>
+        </div>
       </div>
     );
   }

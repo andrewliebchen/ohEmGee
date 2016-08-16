@@ -20,24 +20,31 @@
 }
 
 .bikeContainer {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate3d(-12%, -61%, 0);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 .wheel {
   composes: animation;
-  fill: darken($color-light, 2%);
+  fill: rgba($color-dark, 0.1);
   left: -15vw;
+  // display: none;
+}
+
+.cog {
+  fill: $color-dark;
 }
 
 .sprocket {
   composes: animation;
+  composes: cog;
   left: -15vw;
 }
 
 .chainRing {
   composes: animation;
+  composes: cog;
   left: 15vw;
 }
